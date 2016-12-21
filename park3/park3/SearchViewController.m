@@ -18,8 +18,14 @@
 @synthesize searchBar;
 @synthesize map;
 @synthesize la,lo;
+@synthesize image1;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [scroller setScrollEnabled:YES];
+    scroller.backgroundColor=[UIColor whiteColor];
+    [scroller setContentSize:CGSizeMake(320, 1400)];
 }
 
 - (IBAction)searchPressed:(UIBarButtonItem *)sender {
@@ -48,7 +54,7 @@
     receiveDic = [NSJSONSerialization JSONObjectWithData:urlData
                                                  options:NSJSONReadingMutableContainers
                                                    error:nil];
-    
+    //NSLog(@"%@",receiveDic);
     NSDictionary *aa=[receiveDic objectForKey:@"SearchInfoByParkNameService"];
     NSArray *result01=aa[@"row"];
     
@@ -78,7 +84,9 @@
         pdetail.text=newData.P_LIST_CONTENT;
         la=newData.LATITUDE;
         lo=newData.LONGITUDE;
-        
+
+            NSURL *url=[[NSURL alloc]initWithString:newData.P_IMG];
+            self.image1.image=[UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
         MKCoordinateRegion region;
         region.center.latitude=[la doubleValue];
         region.center.longitude=[lo doubleValue];

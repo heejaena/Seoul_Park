@@ -15,7 +15,10 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
     UIImage *img=[UIImage imageNamed:@"park.png"];
     UIImage *scaleImage=[UIImage imageWithCGImage:[img CGImage]

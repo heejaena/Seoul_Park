@@ -11,6 +11,8 @@
 
 @interface SearchViewController : UIViewController{
     NSDictionary *receiveDic;
+    IBOutlet UIScrollView *scroller;
+
 }
 
 @property (strong, nonatomic) NSString *la;
@@ -24,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 
+@property (strong, nonatomic) IBOutlet UIImageView *image1;
 
 - (IBAction)searchPressed:(UIBarButtonItem *)sender;
 
